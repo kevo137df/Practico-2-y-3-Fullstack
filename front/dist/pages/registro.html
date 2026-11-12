@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - GangleBooks</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/ganglebooks-logo.svg">
+  <link rel="stylesheet" href="../css/panel.css?v=4">
+</head>
+<body class="pagina-auth">
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> GangleBooks</div>
+      <h1 class="auth-titulo">Crear cuenta</h1>
+
+      <div id="registro-alerta" class="alerta error d-none" role="alert"></div>
+
+      <form id="form-registro" novalidate>
+        <div class="campo">
+          <label for="reg-nombre">Nombre de usuario</label>
+          <input type="text" id="reg-nombre" autocomplete="username" maxlength="60" required autofocus>
+        </div>
+        <div class="campo">
+          <label for="reg-email">Correo electrónico</label>
+          <input type="email" id="reg-email" autocomplete="email" required>
+        </div>
+        <div class="campo">
+          <label for="reg-password">Contraseña (mínimo 6 caracteres)</label>
+          <input type="password" id="reg-password" autocomplete="new-password" required>
+        </div>
+        <div class="campo">
+          <label for="reg-confirm">Confirmar contraseña</label>
+          <input type="password" id="reg-confirm" autocomplete="new-password" required>
+        </div>
+        <button type="submit" id="registro-btn" class="btn-principal azul">Registrarse</button>
+      </form>
+
+      <p class="auth-pie">¿Ya tenés cuenta? <a href="login.html">Iniciá sesión acá</a></p>
+      <p class="auth-pie" style="margin-top:6px;"><a class="link-volver" href="../../index.html">&larr; Volver al inicio</a></p>
+    </div>
+  </main>
+
+  <script src="../js/api.js?v=4"></script>
+  <script src="../js/registro.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+services:
+
+  # Servidor Web + PHP (front + api)
+  app:
+    build: .
+    container_name: ${APP_NAME:-ganglebooks}_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_NAME: biblioteca_arca
+      DB_USER: root
+      DB_PASS: '1234'
+    depends_on:
+      - db
+
+  # Base de Datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: ${APP_NAME:-ganglebooks}_db
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      # Se entra con el usuario root (clave 1234).
+      # Ojo: MYSQL_USER no puede ser "root" (MySQL no arranca), por eso no se usa.
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: biblioteca_arca
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # Solo se ejecuta la PRIMERA vez (volumen vacío)
+      - ./database/biblioteca.sql:/docker-entrypoint-initdb.d/biblioteca.sql
+
+  # Interfaz gráfica para MySQL
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${APP_NAME:-ganglebooks}_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  db_data:

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - GangleBooks</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/ganglebooks-logo.svg">
+  <link rel="stylesheet" href="../css/panel.css?v=4">
+</head>
+<body class="pagina-auth">
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> GangleBooks</div>
+      <h1 class="auth-titulo">Iniciar sesión</h1>
+
+      <div id="login-alerta" class="alerta error d-none" role="alert"></div>
+
+      <form id="form-login" novalidate>
+        <div class="campo">
+          <label for="login-nombre">Usuario o correo</label>
+          <input type="text" id="login-nombre" autocomplete="username" required autofocus>
+        </div>
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" id="login-btn" class="btn-principal">Entrar</button>
+      </form>
+
+      <p class="auth-pie">¿No tenés cuenta? <a href="registro.html">Registrate acá</a></p>
+      <p class="auth-pie" style="margin-top:6px;"><a class="link-volver" href="../../index.html">&larr; Volver al inicio</a></p>
+    </div>
+  </main>
+
+  <script src="../js/api.js?v=4"></script>
+  <script src="../js/login.js?v=4"></script>
+</body>
+</html>

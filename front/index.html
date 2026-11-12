@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GangleBooks</title>
+  <link rel="icon" type="image/svg+xml" href="dist/assets/logos/ganglebooks-logo.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="dist/css/style.css?v=4">
+</head>
+<body>
+
+<!-- bar -->
+<header class="navbar-gangle">
+  <span class="navbar-logo ir-a-libros">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+    GangleBooks
+  </span>
+
+  <ul class="navbar-nav">
+    <li><a href="#">inicio</a></li>
+    <li><a href="#">sobre nosotros</a></li>
+    <li><a href="#">Local</a></li>
+  </ul>
+  
+  <!-- Contenedor dinámico de usuario -->
+  <div id="contenedor-usuario"></div>
+</header>
+
+
+<!-- hero -->
+<section class="hero">
+  <h1 class="hero-titulo">Descubre un mundo de sueños y realidades!!</h1>
+  <p class="hero-sub">Libros y más a un solo</p>
+  <button class="btn-click ir-a-libros">Click</button>
+</section>
+
+
+<!-- fotos tienda bb -->
+<div class="fotos-tienda">
+  <img src="https://muraldigital.uphm.edu.mx/wp-content/uploads/2024/11/libros-4.jpg" alt="libros en la tienda">
+  <img src="https://concepto.de/wp-content/uploads/2023/02/Tipos-de-libros.jpg" alt="pila de libros">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Ht8k8ydBFwg8KJNxPCbDCpobsYDT4UHkE_wRgsG9Lo5S6JwMkxk4OvP8&s=10" alt="estantes">
+</div>
+
+
+<!-- ================================================
+     LIBROS POPULARES
+================================================ -->
+<section class="populares">
+  <h2 class="titulo-bloque">Libros Populares</h2>
+
+  <div class="carrusel-wrap">
+    <div class="carrusel-riel" id="riel-populares">
+
+      <div class="libro-popular">
+        <div class="libro-popular-portada">
+          <img src="https://www.planetadelibros.com.uy/usuaris/libros/fotos/214/original/portada_wigetta-y-el-anidoto-secreto_vegetta777_201603142008.jpg" class="img-portada">
+        </div>
+        <p class="libro-popular-titulo">"El antidoto secreto"</p>
+        <p class="libro-popular-autor">Willirex</p>
+        <p class="libro-popular-precio">US$ 10.00</p>
+      </div>
+
+      <div class="libro-popular">
+        <div class="libro-popular-portada">
+          <img src="https://storage-aws-production.publica.la/prhcontent/issues/2024/05/B8jcbgh30MVqNpuL/30c7bfa8-2a64-4dd4-bd1e-c11db0b5a347_cover.jpg" class="img-portada">
+        </div>
+        <p class="libro-popular-titulo">"Chupa el Perro"</p>
+        <p class="libro-popular-autor">German Garmendia</p>
+        <p class="libro-popular-precio">US$ 9.99</p>
+      </div>
+
+      <div class="libro-popular">
+        <div class="libro-popular-portada">
+          <img src="https://upload.wikimedia.org/wikipedia/en/f/fa/ScottPilgrimColored.jpg" class="img-portada">
+        </div>
+        <p class="libro-popular-titulo">"Scott Pilgrim vs El Mundo"</p>
+        <p class="libro-popular-autor">Bryan Lee O'Malley</p>
+        <p class="libro-popular-precio">US$ 14.99</p>
+      </div>
+
+      <div class="libro-popular">
+        <div class="libro-popular-portada">
+          <img src="https://www.planetadelibros.com.uy/usuaris/libros/fotos/125/original/124227_portada_el-codigo-da-vinci_dan-brown_201505260959.jpg" class="img-portada">
+        </div>
+        <p class="libro-popular-titulo">"El Código Da Vinci"</p>
+        <p class="libro-popular-autor">Dan Brown</p>
+        <p class="libro-popular-precio">US$ 9.99</p>
+      </div>
+
+      <div class="libro-popular">
+        <div class="libro-popular-portada">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCgQcwAHtwubEOd-4MX1CoMnGJR7xL26ZI-sk8YgRWTK86Lodg9fX7AUWm&s=10" class="img-portada">
+        </div>
+        <p class="libro-popular-titulo">"Sapiens"</p>
+        <p class="libro-popular-autor">Yuval Noah Harari</p>
+        <p class="libro-popular-precio">US$ 14.99</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carrusel-controles">
+    <button class="btn-flecha" id="flecha-izq"><i class="bi bi-chevron-left"></i></button>
+    <span class="txt-ver-mas">ver más</span>
+    <button class="btn-flecha" id="flecha-der"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</section>
+
+
+<!--libros filtros-->
+<section class="seccion-libros" id="seccion-libros">
+  <h2 class="titulo-bloque">Libros</h2>
+
+  <div class="pestanas-wrap">
+    <button class="pestana activa" data-orden="vendido">Más Vendido</button>
+    <button class="pestana" data-orden="popular">Más Popular</button>
+    <button class="pestana" data-orden="hits">Hits Mundiales</button>
+  </div>
+
+  <div class="panel-libros">
+   <aside class="sidebar-filtros">
+
+      <div class="dropdown-wrap">
+        <button class="btn-sidebar" id="btn-anio">
+          Año <span class="btn-sidebar-flecha">▾</span>
+        </button>
+        <div class="dropdown-lista" id="dd-anio">
+          <div id="lista-anio"></div>
+        </div>
+      </div>
+
+      <div class="dropdown-wrap">
+        <button class="btn-sidebar" id="btn-autor">
+          Autor <span class="btn-sidebar-flecha">▾</span>
+        </button>
+        <div class="dropdown-lista" id="dd-autor">
+          <div id="lista-autor"></div>
+        </div>
+      </div>
+
+      <hr class="separador-sidebar">
+      <span class="label-categoria">Categoría</span>
+
+      <ul class="lista-categorias">
+        <li><button class="btn-categoria cat-activa" data-genero="accion">Acción</button></li>
+        <li><button class="btn-categoria" data-genero="aventura">Aventura</button></li>
+        <li><button class="btn-categoria" data-genero="biografia">Biografía</button></li>
+        <li><button class="btn-categoria" data-genero="comedia">Comedia</button></li>
+        <li><button class="btn-categoria" data-genero="crimen">Crimen</button></li>
+        <li><button class="btn-categoria" data-genero="documental">Documental</button></li>
+        <li><button class="btn-categoria" data-genero="fantasia">Fantasía</button></li>
+        <li><button class="btn-categoria" data-genero="historia">Historia</button></li>
+        <li><button class="btn-categoria" data-genero="horror">Horror / Terror</button></li>
+        <li><button class="btn-categoria" data-genero="misterio">Misterio</button></li>
+        <li><button class="btn-categoria" data-genero="romance">Romance</button></li>
+      </ul>
+
+    </aside>
+
+    <div class="grilla-libros">
+      <p class="grilla-titulo" id="grilla-titulo">Más Vendidos · Acción</p>
+      <div class="grid-9" id="grilla-libros"></div>
+    </div>
+
+  </div>
+
+  <div class="flecha-mas-wrap">
+    <button class="btn-mas"><i class="bi bi-chevron-down"></i></button>
+  </div>
+
+</section>
+
+
+<section class="seccion-autores">
+  <h2 class="titulo-bloque">Autores Populares</h2>
+
+  <div class="grid-autores">
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92YVO4Pz12xn8W3TpBtovCESAbi-6pokhDPujNxpyyHwSStPPE4C28_1e&s=10" alt="Stephen King">
+      <span class="nombre-autor">Stephen<br>King</span>
+    </div>
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB9bV9SCa5idRL_UCxbeD50ohjxlpHy08cv3LObe9vlZd8S1qRD9lqvpA&s=10" alt="J.K. Rowling">
+      <span class="nombre-autor">J.K.<br>Rowling</span>
+    </div>
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT345upFC2DbA1FEiMBXMguq4A99E-c1dWud0HAW5CXiQ&s=10" alt="James Patterson">
+      <span class="nombre-autor">James<br>Patterson</span>
+    </div>
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8wLXM3_DH_iqz7NctonrnTpRcd6HVxmLBA4a_XRKAno218konvWRgHhYl&s=10" alt="Danielle Steel">
+      <span class="nombre-autor">Danielle<br>Steel</span>
+    </div>
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJz5a4S33Jd6Zetrh5OCxcJ7YCrPKhntb1sb21mn8HU0ULyTAjsRA71Y0&s=10" alt="Paulo Coelho">
+      <span class="nombre-autor">Paulo<br>Coelho</span>
+    </div>
+    <div class="tarjeta-autor">
+      <img class="foto-autor" src="https://m.media-amazon.com/images/S/amzn-author-media-prod/5ttbrvdsk9p66u9sote44l8mj0.jpg" alt="Freida McFadden">
+      <span class="nombre-autor">Freida<br>McFadden</span>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div>
+      <p class="footer-marca">GangleBooks</p>
+      <p class="footer-desc">Bases y condiciones en www.ganglebooks.com</p>
+      <div class="footer-redes">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h6>Ebooks</h6>
+      <ul>
+        <li><a href="#">Vencimiento</a></li>
+        <li><a href="#">Subscripciones</a></li>
+        <li><a href="#">Desubcrivirse</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Jordi Wild<br>(Bibliotecario)</h6>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Wild Projet</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h6>Soporte</h6>
+      <ul>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Bases y condiciones</a></li>
+        <li><a href="#">Información Legal</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Scripts al final del documento -->
+<script src="dist/js/api.js?v=4"></script>
+<script src="dist/js/script.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Al entrar a http://localhost:8080/ te lleva a la página principal
+RewriteRule ^$ %{REQUEST_URI}front/index.html [R=302,L]
+
+# El panel de administración pasa primero por el control de sesión del servidor:
+# solo un Administrador recibe dashboard.html (ver api/guard-dashboard.php)
+RewriteRule ^front/dist/pages/dashboard\.html$ api/guard-dashboard.php [L]

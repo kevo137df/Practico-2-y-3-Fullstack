@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración - GangleBooks</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/ganglebooks-logo.svg">
+  <link rel="stylesheet" href="../css/panel.css?v=4">
+</head>
+<body class="pagina-auth">
+
+  <!-- Se muestra recién cuando la API confirma que hay un admin logueado -->
+  <div id="panel-contenido" class="d-none">
+
+    <header class="panel-topbar">
+      <span class="panel-marca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> GangleBooks <small>| Panel Admin</small></span>
+      <div class="panel-acciones">
+        <span class="panel-saludo">Hola, <b id="panel-nombre"></b></span>
+        <a href="../../index.html" class="btn-chico gris">Ver sitio</a>
+        <button type="button" id="btn-logout" class="btn-chico rojo">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <div class="panel-contenedor">
+
+      <div id="panel-alerta" class="alerta d-none" role="status"></div>
+
+      <div class="panel-stats">
+        <div class="stat"><span>Libros</span><strong id="stat-libros">–</strong></div>
+        <div class="stat"><span>Usuarios</span><strong id="stat-usuarios">–</strong></div>
+      </div>
+
+      <div class="panel-grid">
+
+        <!-- Formulario: agregar o modificar -->
+        <div class="panel-card">
+          <h2 id="form-titulo">Agregar Nuevo Libro</h2>
+          <form id="form-libro" novalidate>
+            <input type="hidden" id="libro-id">
+            <div class="campo">
+              <label for="libro-titulo">Título:</label>
+              <input type="text" id="libro-titulo" maxlength="150" autocomplete="off" required>
+            </div>
+            <div class="campo">
+              <label for="libro-autor">Autor:</label>
+              <input type="text" id="libro-autor" maxlength="100" autocomplete="off" required>
+            </div>
+            <div class="campo">
+              <label for="libro-genero">Género:</label>
+              <select id="libro-genero" required></select>
+            </div>
+            <div class="campo">
+              <label for="libro-precio">Precio (US$):</label>
+              <input type="number" id="libro-precio" step="0.01" min="0" required>
+            </div>
+            <div class="campo">
+              <label for="libro-anio">Año:</label>
+              <input type="number" id="libro-anio" min="1000" max="2100" required>
+            </div>
+            <div class="campo">
+              <label for="libro-portada">URL de la imagen (portada):</label>
+              <input type="url" id="libro-portada" placeholder="https://...">
+            </div>
+            <button type="submit" id="btn-guardar" class="btn-guardar">Agregar al Catálogo</button>
+            <button type="button" id="btn-cancelar" class="btn-cancelar d-none">Cancelar edición</button>
+          </form>
+        </div>
+
+        <!-- Inventario -->
+        <div class="panel-card">
+          <h2>Inventario de Libros</h2>
+          <div class="tabla-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th><th>Título</th><th>Autor</th><th>Género</th><th>Precio</th><th>Año</th>
+                  <th style="text-align:center;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-libros"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/api.js?v=4"></script>
+  <script src="../js/dashboard.js?v=4"></script>
+</body>
+</html>

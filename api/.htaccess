@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Nadie debe poder abrir el código interno ni el .env desde el navegador
+RewriteRule ^(src|config)/ - [F,L]
+RewriteRule ^\.env - [F,L]
+
+# Todo lo que no sea un archivo real (/api/login, /api/me, /api/libros ...) lo atiende index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

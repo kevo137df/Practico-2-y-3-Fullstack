@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta - GangleBooks</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/ganglebooks-logo.svg">
+  <link rel="stylesheet" href="../css/panel.css?v=4">
+</head>
+<body class="pagina-auth">
+
+  <!-- Se muestra recién cuando la API confirma que hay un usuario logueado -->
+  <main id="usuario-contenido" class="auth-wrap d-none">
+    <div class="auth-card">
+      <div class="auth-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> GangleBooks</div>
+      <h1 class="auth-titulo">Hola, <span id="usuario-nombre"></span>!</h1>
+
+      <div class="cuenta-datos">
+        <div class="cuenta-fila"><span>Usuario</span><strong id="usuario-dato-nombre"></strong></div>
+        <div class="cuenta-fila"><span>Correo</span><strong id="usuario-email"></strong></div>
+        <div class="cuenta-fila"><span>Rol</span><strong id="usuario-rol"></strong></div>
+      </div>
+
+      <a href="../../index.html" class="btn-principal azul btn-bloque">Ir a la tienda</a>
+      <button type="button" id="usuario-logout" class="btn-principal rojo btn-bloque">Cerrar sesión</button>
+
+      <p class="auth-pie" style="margin-top:6px;"><a class="link-volver" href="../../index.html">&larr; Volver al inicio</a></p>
+    </div>
+  </main>
+
+  <script src="../js/api.js?v=4"></script>
+  <script src="../js/usuario.js?v=4"></script>
+</body>
+</html>
